@@ -77,3 +77,29 @@ function startGame() {
     questionCard.classList.remove('hide');
     setNextQuestion();
 }
+
+function setNextQuestion() {
+    if (questionIndex < shuffledQuestions.length) {
+        showQuestion(shuffledQuestions[questionIndex])
+    } else {
+        questionCard.classList.add('hide');
+        start.classList.remove('hide');
+        time = 0;
+    }
+}
+
+function showQuestion(question) {
+    answerBtnEl.innerHTML = '';
+    //This calls the question from array and dynamicly sets the quiz//
+    questionEl.innerHTML = question.question;
+    //This goes through and creates buttons for each answer//
+    question.answer.forEach(answer => {
+        var button = document.createElement('button');
+        button.innerText = answer.text;
+        button.classList.add('btn');
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        answerBtnEl.appendChild(button);
+    })    
+}
