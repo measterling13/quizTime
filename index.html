@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Quiz Party</title>
+</head>
+<body>
+    <header>
+        <h2 class="score">Score:</h2>
+        <h2 class="timer">Timer:</h2>
+    </header>
+    <aside>
+        <h3>Your Last Score</h3>
+        <ul>
+            <li class="player"></li>
+            <li class="highscore"></li>
+        </ul>
+    </aside>
+    <section class="game-time">
+        <h1>Quiz Time</h1>
+        <div class="container">
+            <section class="questions-card hide">
+                <div id="question"></div>
+                <div id="answerBtn" class="btn-grid"></div>
+            </section>
+            <div>
+                <button id="start-btn" class="startBtn btn">Start</button>
+            </div>
+        </div>
+    </section>
+    <script src="./script.js"></script>
+</body>
+</html>
