@@ -103,3 +103,33 @@ function showQuestion(question) {
         answerBtnEl.appendChild(button);
     })    
 }
+
+function selectAnswer(e) {
+    var selectedBtn = e.target;
+    var correct = selectedBtn.dataset.correct? true: false;
+    setStatusClass(correct);
+    questionIndex++;
+    setNextQuestion();
+}
+
+function setStatusClass(correct) {
+    
+    if (correct === true){
+        score += 10;
+    } else {
+        time -= 10;
+        timerEl.textContent = 'Timer: ' + time;
+    }
+    scoreEl.textContent = "Score: " + score;
+}
+
+function highScore() {
+    var player = prompt("Please enter your initials. Your Score is " + score);
+    localStorage.setItem("player", player);
+    localStorage.setItem("score", score);
+}
+
+function renderLastScore () {
+    player.textContent = "Player: " + localStorage.getItem("player");
+    highscore.textContent = "Last Score: " + localStorage.getItem("score");
+}
