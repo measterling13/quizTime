@@ -38,3 +38,42 @@ var question = [
         ]
     }
 ];
+
+renderLastScore();
+
+start.addEventListener("click", timer);
+start.addEventListener("click", startGame);
+answerBtnEl.addEventListener("click", function(e) {
+    if (e.target.className === 'btn') {
+        selectAnswer(e)
+    }  
+})
+
+var time= 20;
+
+function timer(){
+
+    var timeInterval = setInterval(function(){
+
+        if (time > 1) {
+            timerEl.textContent = 'Timer: ' + time;
+            time--; 
+        } else if (time === 1) {
+            timerEl.textContent = 'Timer: ' + time;
+            time--;
+        } else {
+            timerEl.textContent = 'Times up';
+            clearInterval(timeInterval);
+            highScore();
+        }
+        return;
+    }, 1000);
+}
+
+function startGame() {
+    
+    start.classList.add('hide');
+    shuffledQuestions = question.sort(() => Math.random()- .5)
+    questionCard.classList.remove('hide');
+    setNextQuestion();
+}
